@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, Linking } from 'react-native';
+import { View, Text, StyleSheet, Image, Linking } from 'react-native';
 import CardSection from './CardSection';
 import Card from './Card';
+import Button from './Button';
 
 const AlbumDetail = ({ album }) => {
     const { title, artist, thumbnail_image, image, url } = album;
@@ -29,12 +30,7 @@ const AlbumDetail = ({ album }) => {
           <Image source={{ uri: image }} style={thumbnailImageStyle} />
         </CardSection>
         <CardSection>
-          <TouchableOpacity
-            style={buttonStyle}
-            onPress={() => Linking.openURL(url)}
-          >
-            <Text style={btnTextStyle}>Buy now</Text>
-          </TouchableOpacity>
+          <Button onPress={() => Linking.openURL(url)} />
         </CardSection>
       </Card>
   );
